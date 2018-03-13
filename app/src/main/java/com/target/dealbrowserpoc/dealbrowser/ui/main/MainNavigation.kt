@@ -4,6 +4,7 @@ import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.OnLifecycleEvent
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.target.dealbrowserpoc.dealbrowser.R
 import com.target.dealbrowserpoc.dealbrowser.navigation.NavBuilder
 import info.juanmendez.shoeboxes.shoes.ShoeBox
@@ -28,7 +29,7 @@ class MainNavigation(private var mActivity:AppCompatActivity, private var rack: 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun onResume(){
 
-        val fm = mActivity.supportFragmentManager;
+        val fm = mActivity.supportFragmentManager
 
         //0
         val listBox: ShoeBox = NavBuilder.create(fm, rack, R.id.deal_list)
@@ -61,11 +62,27 @@ class MainNavigation(private var mActivity:AppCompatActivity, private var rack: 
         if( rack.history.isNotEmpty() ){
             //pull the last route
             val last = rack.history.last()
-            
+
             if( !isDoublePane() ){
-                displayBackhome( last.indexOf( R.id.deal_item.toString() ) == 0 )
+
+                val isDealItemActive = last.indexOf( R.id.deal_item.toString() ) == 0
+                displayBackhome( isDealItemActive )
+
+                /**
+                 * In this demo we have one menu item. So we want it to display whenever
+                 * the deals-fragment is displayed
+                 */
+                mActivity.findViewById<View>( R.id.menu_refresh )?.let{
+                    if( isDealItemActive ){
+                        it.visibility = View.GONE
+                    }else{
+                        it.visibility = View.VISIBLE
+                    }
+                }
+
             }else{
                 displayBackhome( false )
+                mActivity.findViewById<View>( R.id.menu_refresh )?.visibility = View.VISIBLE
             }
         }
     }
