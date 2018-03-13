@@ -1,5 +1,8 @@
 package com.target.dealbrowserpoc.dealbrowser.ui
 
+import android.arch.lifecycle.Lifecycle
+import android.arch.lifecycle.LifecycleObserver
+import android.arch.lifecycle.OnLifecycleEvent
 import android.support.v7.app.AppCompatActivity
 import com.target.dealbrowserpoc.dealbrowser.R
 import com.target.dealbrowserpoc.dealbrowser.ui.FragmentBuilder.Companion.create
@@ -13,13 +16,19 @@ import org.androidannotations.annotations.EBean
  * Created by juan on 3/12/18.
  */
 @EBean
-class MainPresenter {
+class MainPresenter : LifecycleObserver {
 
     private lateinit var mActivity: AppCompatActivity
     private lateinit var rack:ShoeRack
 
     fun setView( activity: AppCompatActivity ){
         mActivity = activity
+        mActivity.lifecycle.addObserver( this )
+    }
+
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun onResume(){
 
         rack = ShoeStorage.getRack( mActivity::class.java.name )
         val doublePane = mActivity.resources.getBoolean(R.bool.doublePane)
@@ -35,4 +44,10 @@ class MainPresenter {
         }
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    fun onPause(){
+        rack.onActivityPause()
+    }
+
+    fun onBackPressed(): Boolean = rack.goBack()
 }

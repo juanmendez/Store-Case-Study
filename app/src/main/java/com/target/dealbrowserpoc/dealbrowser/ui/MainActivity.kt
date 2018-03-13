@@ -2,6 +2,8 @@ package com.target.dealbrowserpoc.dealbrowser.ui
 
 import android.support.v7.app.AppCompatActivity
 import com.target.dealbrowserpoc.dealbrowser.R
+import info.juanmendez.shoeboxes.ShoeStorage
+import org.androidannotations.annotations.AfterInject
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.Bean
 import org.androidannotations.annotations.EActivity
@@ -15,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     @Bean
     lateinit var mainPresenter: MainPresenter
 
-    @AfterViews
+    @AfterInject
     fun afterViews(){
         mainPresenter.setView( this )
         /*http.getBreeds( object:DealsCall<List<Deals>>{
@@ -29,5 +31,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })*/
+    }
+
+    override fun onBackPressed() {
+        if( !mainPresenter.onBackPressed()){
+            super.onBackPressed()
+        }
     }
 }

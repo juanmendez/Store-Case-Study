@@ -10,7 +10,6 @@ import info.juanmendez.shoeboxes.shoes.ShoeRack
  * www.juanmendez.info
  * contact@juanmendez.info
  *
- *
  * This is a support adapter for this application using ShoeBoxes.
  * Fragments are set to hide when inactive, and show when mActive.
  * Route params are only received once
