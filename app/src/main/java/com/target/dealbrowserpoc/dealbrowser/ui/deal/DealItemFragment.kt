@@ -15,6 +15,9 @@ class DealItemFragment: Fragment(), NavFragment {
 
     override fun active(route: String?) {
 
+        route?.let {
+
+        }
     }
 
     override fun inactive() {
