@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/deal_item"
-        android:name="com.target.dealbrowserpoc.dealbrowser.ui.listing.DealListFragment_"
+        android:name="com.target.dealbrowserpoc.dealbrowser.ui.deal.DealItemFragment_"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"

@@ -3,10 +3,7 @@ package com.target.dealbrowserpoc.dealbrowser.ui
 import android.support.v7.app.AppCompatActivity
 import com.target.dealbrowserpoc.dealbrowser.R
 import info.juanmendez.shoeboxes.ShoeStorage
-import org.androidannotations.annotations.AfterInject
-import org.androidannotations.annotations.AfterViews
-import org.androidannotations.annotations.Bean
-import org.androidannotations.annotations.EActivity
+import org.androidannotations.annotations.*
 
 @EActivity(R.layout.activity_main)
 class MainActivity : AppCompatActivity() {
@@ -33,9 +30,15 @@ class MainActivity : AppCompatActivity() {
         })*/
     }
 
+    @OptionsItem(android.R.id.home)
+    fun onBackHomeOption(){
+        onBackPressed()
+    }
+
     override fun onBackPressed() {
         if( !mainPresenter.onBackPressed()){
             super.onBackPressed()
         }
     }
+
 }

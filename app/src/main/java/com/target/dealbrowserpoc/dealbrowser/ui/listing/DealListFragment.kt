@@ -3,6 +3,8 @@ package com.target.dealbrowserpoc.dealbrowser.ui.listing
 import android.support.v4.app.Fragment
 import com.target.dealbrowserpoc.dealbrowser.R
 import com.target.dealbrowserpoc.dealbrowser.navigation.NavFragment
+import info.juanmendez.shoeboxes.ShoeStorage
+import org.androidannotations.annotations.Click
 import org.androidannotations.annotations.EFragment
 
 /**
@@ -17,5 +19,10 @@ class DealListFragment: Fragment(), NavFragment {
 
     override fun inactive() {
 
+    }
+
+    @Click(R.id.buttonNav)
+    fun onButtonNav(){
+        ShoeStorage.getCurrentRack().request( R.id.deal_item.toString() + "/1" )
     }
 }
