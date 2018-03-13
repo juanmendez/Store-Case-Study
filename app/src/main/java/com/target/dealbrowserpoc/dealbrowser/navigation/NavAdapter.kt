@@ -1,4 +1,4 @@
-package com.target.dealbrowserpoc.dealbrowser.ui
+package com.target.dealbrowserpoc.dealbrowser.navigation
 
 import android.support.v4.app.Fragment
 import info.juanmendez.shoeboxes.adapters.ShoeFragmentAdapter
@@ -14,9 +14,9 @@ import info.juanmendez.shoeboxes.shoes.ShoeRack
  * Fragments are set to hide when inactive, and show when mActive.
  * Route params are only received once
  */
-class ShoeBoxAdapter (private var mFragment: Fragment, private var mShoeRack: ShoeRack) : ShoeFragmentAdapter {
-    private val mActive: Boolean = false
-    private var mShoeTag: String? = null
+class NavAdapter (private var mFragment: Fragment, private var mShoeRack: ShoeRack) : ShoeFragmentAdapter {
+    private var mActive: Boolean = false
+    private lateinit var mShoeTag: String
 
     init {
 
@@ -40,7 +40,7 @@ class ShoeBoxAdapter (private var mFragment: Fragment, private var mShoeRack: Sh
      * then we let the mFragment status if it's of type FragmentNav
      * also in that case we pass the recent route params
      */
-    override fun setActive(active: Boolean?) {
+    override fun setActive(active: Boolean) {
 
         val fm = mFragment.fragmentManager
 
@@ -48,7 +48,7 @@ class ShoeBoxAdapter (private var mFragment: Fragment, private var mShoeRack: Sh
 
             val ft = fm.beginTransaction()
 
-            if (active!!) {
+            if (active) {
                 ft.show(mFragment)
             } else {
                 ft.hide(mFragment)
@@ -56,14 +56,15 @@ class ShoeBoxAdapter (private var mFragment: Fragment, private var mShoeRack: Sh
 
             ft.commit()
 
-            /*if( mFragment instanceof FragmentNav && mActive != active){
-                mActive = active;
-                if( active ){
-                    ((FragmentNav) mFragment).active( mShoeRack.getRouteParamsOnce(mShoeTag) );
+            if( mFragment is NavFragment ){
+                mActive = active
+
+                if( mActive ){
+                    ( mFragment as NavFragment ).active( mShoeRack.getRouteParamsOnce( mShoeTag ))
                 }else{
-                    ((FragmentNav) mFragment).inactive( false );
+                    ( mFragment as NavFragment ).inactive()
                 }
-            }*/
+            }
         }
     }
 
@@ -75,10 +76,12 @@ class ShoeBoxAdapter (private var mFragment: Fragment, private var mShoeRack: Sh
      * upon parent activity pausing we let fragments know there has been a paused
      */
     override fun onRotation() {
-        /*if( mFragment instanceof FragmentNav && mActive){
-            mActive = false;
-            ((FragmentNav) mFragment).inactive( true );
-        }*/
+
+        if( mFragment is NavFragment && mActive ){
+            mActive = false
+
+            ( mFragment as NavFragment ).inactive()
+        }
     }
 
     override fun fromChildVisit() {

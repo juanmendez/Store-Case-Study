@@ -5,7 +5,7 @@ import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.OnLifecycleEvent
 import android.support.v7.app.AppCompatActivity
 import com.target.dealbrowserpoc.dealbrowser.R
-import com.target.dealbrowserpoc.dealbrowser.ui.FragmentBuilder.Companion.create
+import com.target.dealbrowserpoc.dealbrowser.navigation.NavBuilder.Companion.create
 import info.juanmendez.shoeboxes.ShoeStorage
 import info.juanmendez.shoeboxes.shoes.ShoeBox
 import info.juanmendez.shoeboxes.shoes.ShoeRack
