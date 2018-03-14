@@ -8,7 +8,6 @@ import info.juanmendez.shoeboxes.shoes.ShoeRack
 import org.androidannotations.annotations.*
 
 @SuppressLint("Registered")
-@OptionsMenu(R.menu.menu)
 @EActivity(R.layout.activity_main)
 class MainActivity : AppCompatActivity() {
 
@@ -33,8 +32,8 @@ class MainActivity : AppCompatActivity() {
          */
         MainNavigation( this, rack )
 
-        /*http.getBreeds( object:DealsCall<List<Deals>>{
-            override fun onResponse(response: List<Deals>) {
+        /*http.getBreeds( object:DealsCall<List<Deal>>{
+            override fun onResponse(response: List<Deal>) {
                 Timber.i( "response ${response}")
             }
 
@@ -49,11 +48,6 @@ class MainActivity : AppCompatActivity() {
     @OptionsItem(android.R.id.home)
     fun onBackHomeOption(){
         onBackPressed()
-    }
-
-    @OptionsItem(R.id.menu_refresh)
-    fun onRefreshOption(){
-
     }
 
     override fun onBackPressed() {

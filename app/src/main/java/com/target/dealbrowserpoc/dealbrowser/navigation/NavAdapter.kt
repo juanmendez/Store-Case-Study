@@ -84,11 +84,7 @@ class NavAdapter (private var mFragment: Fragment, private var mShoeRack: ShoeRa
         }
     }
 
-    override fun fromChildVisit() {
+    override fun fromChildVisit() {}
 
-    }
-
-    override fun toChildVisit() {
-
-    }
+    override fun toChildVisit() {}
 }

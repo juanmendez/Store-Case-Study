@@ -1,6 +1,6 @@
 package com.target.dealbrowserpoc.dealbrowser.api
 
-import com.target.dealbrowserpoc.dealbrowser.api.models.Deals
+import com.target.dealbrowserpoc.dealbrowser.api.models.Deal
 import com.target.dealbrowserpoc.dealbrowser.api.models.DealsResponse
 import org.androidannotations.annotations.AfterInject
 import org.androidannotations.annotations.EBean
@@ -29,17 +29,17 @@ class DealsClientHttp {
         mDealsApi = mRetrofit.create( DealsAPI::class.java)
     }
 
-    fun getBreeds(dealsCall: DealsCall<List<Deals>>){
+    fun getBreeds(dealCall: DealsCall<List<Deal>>){
         var call:Call<DealsResponse> = mDealsApi.getDealsResponse()
 
         call.enqueue( object:Callback<DealsResponse>{
             override fun onFailure(call: Call<DealsResponse>?, t: Throwable?) {
-                dealsCall.onError( Exception( t?.message ?: "${DealsRoute.ALL_DEALS}Error") )
+                dealCall.onError( Exception( t?.message ?: "${DealsRoute.ALL_DEALS}Error") )
             }
 
             override fun onResponse(call: Call<DealsResponse>?, response: Response<DealsResponse>?) {
                 val breedList = response!!.body().data
-                dealsCall.onResponse( breedList )
+                dealCall.onResponse( breedList )
             }
         })
     }

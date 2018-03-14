@@ -13,6 +13,6 @@ package com.target.dealbrowserpoc.dealbrowser.api.models
  *  "salePrice": null,
  *  "title": "title"
  */
-data class Deals(var _id:String, var aisle:String, var description:String,
-                 var guid:String, var image:String, var index:Int, var price:String,
-                 var salesPrice:String?=null, var title:String )
+data class Deal(var _id:String, var aisle:String, var description:String,
+                var guid:String, var image:String, var index:Int, var price:String,
+                var salesPrice:String?=null, var title:String )
