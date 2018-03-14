@@ -29,7 +29,7 @@ class DealsClientHttp {
         mDealsApi = mRetrofit.create( DealsAPI::class.java)
     }
 
-    fun getBreeds(dealCall: DealsCall<List<Deal>>){
+    fun getDeals(dealCall: DealsCall<List<Deal>>){
         var call:Call<DealsResponse> = mDealsApi.getDealsResponse()
 
         call.enqueue( object:Callback<DealsResponse>{

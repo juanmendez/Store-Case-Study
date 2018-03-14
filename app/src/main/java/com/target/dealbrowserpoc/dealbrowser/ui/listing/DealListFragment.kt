@@ -23,9 +23,9 @@ class DealListFragment: Fragment(), DealView {
         mPresenter.register( this )
     }
 
-    override fun active(route: String?)=mPresenter.active( route )
+    override fun active(route: String?) = mPresenter.active( route )
 
-    override fun inactive()=mPresenter.inactive()
+    override fun inactive() = mPresenter.inactive()
 
     override fun getLifeCycle(): Lifecycle=activity.lifecycle
 
@@ -37,7 +37,6 @@ class DealListFragment: Fragment(), DealView {
     override fun getMainViewModel(): MainViewModel {
         return ViewModelProviders.of( this ).get( MainViewModel::class.java )
     }
-
 
     @OptionsItem(R.id.menu_refresh)
     fun onMenuRefresh(){

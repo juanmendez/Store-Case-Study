@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
          */
         MainNavigation( this, rack )
 
-        /*http.getBreeds( object:DealsCall<List<Deal>>{
+        /*http.getDeals( object:DealsCall<List<Deal>>{
             override fun onResponse(response: List<Deal>) {
                 Timber.i( "response ${response}")
             }
