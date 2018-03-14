@@ -23,14 +23,9 @@ class DealListFragment: Fragment(), DealView {
         mPresenter.register( this )
     }
 
-    override fun active(route: String?) {
+    override fun active(route: String?)=mPresenter.active( route )
 
-    }
-
-    override fun inactive() {
-
-    }
-
+    override fun inactive()=mPresenter.inactive()
 
     override fun getLifeCycle(): Lifecycle=activity.lifecycle
 

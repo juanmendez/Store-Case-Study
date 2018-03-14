@@ -10,8 +10,4 @@ import com.target.dealbrowserpoc.dealbrowser.api.models.Deal
 class MainViewModel: ViewModel() {
     val dealSelected:MutableLiveData<Deal> = MutableLiveData()
     val dealList:MutableLiveData<List<Deal>> = MutableLiveData()
-
-    fun refreshDeals(response: List<Deal>) {
-        dealList.value = response
-    }
 }

@@ -25,7 +25,11 @@ class DealListPresenter():NavFragment {
     }
 
     override fun active(route: String?) {
+        val list =  mView.getMainViewModel().dealList.value
 
+        if( list?.isEmpty() != false  ){
+            refresh()
+        }
     }
 
     override fun inactive() {
@@ -39,7 +43,7 @@ class DealListPresenter():NavFragment {
 
         http.getBreeds( object: DealsCall<List<Deal>> {
             override fun onResponse(response: List<Deal>) {
-                mView.getMainViewModel().refreshDeals( response )
+                mView.getMainViewModel().dealList.value = response
             }
 
             override fun onError(exception: Exception) {
@@ -48,6 +52,5 @@ class DealListPresenter():NavFragment {
                 }
             }
         })
-
     }
 }
