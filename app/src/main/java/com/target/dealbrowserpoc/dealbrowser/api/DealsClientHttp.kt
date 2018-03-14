@@ -38,8 +38,8 @@ class DealsClientHttp {
             }
 
             override fun onResponse(call: Call<DealsResponse>?, response: Response<DealsResponse>?) {
-                val breedList = response!!.body().data
-                dealCall.onResponse( breedList )
+                val dealList = response!!.body().data
+                dealCall.onResponse( dealList )
             }
         })
     }

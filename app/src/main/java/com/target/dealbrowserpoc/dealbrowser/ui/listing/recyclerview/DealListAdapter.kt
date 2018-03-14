@@ -23,6 +23,7 @@ class DealListAdapter(private val inflater: LayoutInflater, private val view: De
            if( it != null ){
                mDealList.clear()
                mDealList.addAll( it )
+               notifyDataSetChanged()
            }
        })
    }
