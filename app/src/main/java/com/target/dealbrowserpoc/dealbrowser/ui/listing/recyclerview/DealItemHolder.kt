@@ -4,7 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.support.v7.widget.RecyclerView
 import android.widget.TextView
 import com.target.dealbrowserpoc.dealbrowser.R
-import com.target.dealbrowserpoc.dealbrowser.api.models.Deal
+import com.target.dealbrowserpoc.dealbrowser.models.Deal
 import com.target.dealbrowserpoc.dealbrowser.databinding.ListDealItemBinding
 import info.juanmendez.shoeboxes.ShoeStorage
 
@@ -17,7 +17,7 @@ class DealItemHolder(var binding:ListDealItemBinding): RecyclerView.ViewHolder(b
         binding.dealObservable = DealObservable()
     }
 
-    fun setDeal( deal:Deal, liveDeal:MutableLiveData<Deal> ){
+    fun setDeal(deal: Deal, liveDeal:MutableLiveData<Deal> ){
         binding.dealObservable?.deal = deal
         binding.dealItemHolder = this
 

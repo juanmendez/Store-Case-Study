@@ -3,7 +3,7 @@ package com.target.dealbrowserpoc.dealbrowser.ui.listing
 import android.arch.lifecycle.Lifecycle
 import com.target.dealbrowserpoc.dealbrowser.api.DealsCall
 import com.target.dealbrowserpoc.dealbrowser.api.DealsClientHttp
-import com.target.dealbrowserpoc.dealbrowser.api.models.Deal
+import com.target.dealbrowserpoc.dealbrowser.models.Deal
 import com.target.dealbrowserpoc.dealbrowser.navigation.NavFragment
 import com.target.dealbrowserpoc.dealbrowser.ui.utils.ConfirmDialog
 import org.androidannotations.annotations.Bean

@@ -1,7 +1,7 @@
 package com.target.dealbrowserpoc.dealbrowser.api
 
-import com.target.dealbrowserpoc.dealbrowser.api.models.Deal
-import com.target.dealbrowserpoc.dealbrowser.api.models.DealsResponse
+import com.target.dealbrowserpoc.dealbrowser.models.Deal
+import com.target.dealbrowserpoc.dealbrowser.models.DealsResponse
 import org.androidannotations.annotations.AfterInject
 import org.androidannotations.annotations.EBean
 import retrofit2.Call

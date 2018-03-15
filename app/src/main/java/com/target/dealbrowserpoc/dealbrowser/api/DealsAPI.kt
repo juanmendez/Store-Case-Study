@@ -1,6 +1,6 @@
 package com.target.dealbrowserpoc.dealbrowser.api
 
-import com.target.dealbrowserpoc.dealbrowser.api.models.DealsResponse
+import com.target.dealbrowserpoc.dealbrowser.models.DealsResponse
 import retrofit2.Call
 import retrofit2.http.GET
 

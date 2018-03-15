@@ -30,6 +30,8 @@ class DealListFragment: Fragment(), DealView {
     @ViewById
     lateinit var recyclerView: RecyclerView
 
+    private lateinit var mAdapter: DealListAdapter
+
     @AfterInject
     fun afterInject(){
         mPresenter.register( this )
@@ -48,15 +50,23 @@ class DealListFragment: Fragment(), DealView {
 
     private fun drawRecyclerView() {
         //0
+        mAdapter = DealListAdapter(layoutInflater, this)
+
         var layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayout.VERTICAL
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = DealListAdapter(layoutInflater, this)
+        recyclerView.adapter = mAdapter
     }
 
-    override fun active(route: String?) = mPresenter.active( route )
+    override fun active(route: String?){
+        mPresenter.active( route )
+        mAdapter.active( route )
+    }
 
-    override fun inactive() = mPresenter.inactive()
+    override fun inactive(){
+        mPresenter.inactive()
+        mAdapter.inactive()
+    }
 
     override fun getLifeCycle(): Lifecycle=activity.lifecycle
 
