@@ -42,8 +42,8 @@ allOpen {
 kapt {
     correctErrorTypes = true
     arguments {
-        arg("resourcePackageName", "org.androidannotations.gradle")  //AndroidAnnotations fix
-        arg("resourcePackageName", android.defaultConfig.applicationId) //ApplicationId fix
+        arg("resourcePackageName", "org.androidannotations.gradle")
+        arg("resourcePackageName", android.defaultConfig.applicationId)
     }
 }
 
