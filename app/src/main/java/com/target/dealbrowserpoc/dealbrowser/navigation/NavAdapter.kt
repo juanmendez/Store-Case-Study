@@ -16,7 +16,7 @@ import info.juanmendez.shoeboxes.shoes.ShoeRack
  */
 class NavAdapter (private var mFragment: Fragment, private var mShoeRack: ShoeRack) : ShoeFragmentAdapter {
     private var mActive: Boolean = false
-    private lateinit var mShoeTag: String
+    private var mShoeTag: String = ""
 
     init {
 
@@ -60,7 +60,7 @@ class NavAdapter (private var mFragment: Fragment, private var mShoeRack: ShoeRa
                 mActive = active
 
                 if( mActive ){
-                    ( mFragment as NavFragment ).active( mShoeRack.getRouteParamsOnce( mShoeTag ))
+                    ( mFragment as NavFragment ).active( mShoeRack.getRouteParams( mShoeTag ))
                 }else{
                     ( mFragment as NavFragment ).inactive()
                 }

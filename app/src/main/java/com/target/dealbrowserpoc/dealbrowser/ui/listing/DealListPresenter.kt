@@ -40,14 +40,16 @@ class DealListPresenter():NavFragment {
         if( !mView.getLifeCycle().currentState.equals(Lifecycle.State.RESUMED))
             return
 
-
+        /**
+         * Once fetching deals, it's required to update MainViewModel's liveDealList
+         */
         http.getDeals( object: DealsCall<List<Deal>> {
             override fun onResponse(response: List<Deal>) {
                 mView.getMainViewModel().liveDealList.value = response
             }
 
             override fun onError(exception: Exception) {
-                exception?.message?.let {
+                exception.message?.let {
                     ConfirmDialog.newInstance( mView.context, it, {}, true ).show()
                 }
             }
