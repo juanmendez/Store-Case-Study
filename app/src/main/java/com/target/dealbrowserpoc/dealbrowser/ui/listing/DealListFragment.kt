@@ -64,7 +64,7 @@ class DealListFragment: Fragment(), DealView {
     }*/
 
     override fun getMainViewModel(): MainViewModel {
-        return ViewModelProviders.of( this ).get( MainViewModel::class.java )
+        return ViewModelProviders.of( activity ).get( MainViewModel::class.java )
     }
 
     @OptionsItem(R.id.menu_refresh)

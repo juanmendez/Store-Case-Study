@@ -36,6 +36,6 @@ class DealListAdapter(private val inflater: LayoutInflater, private val view: De
     override fun getItemCount(): Int = mDealList.size
 
     override fun onBindViewHolder(holder: DealItemHolder?, position: Int) {
-        holder?.setDeal( mDealList[position] )
+        holder?.setDeal( mDealList[position], view.getMainViewModel().liveDealSelected )
     }
 }

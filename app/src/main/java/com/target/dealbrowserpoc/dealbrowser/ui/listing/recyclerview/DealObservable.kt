@@ -9,12 +9,12 @@ import com.target.dealbrowserpoc.dealbrowser.api.models.Deal
  * Created by juan on 3/14/18.
  */
 class DealObservable:BaseObservable() {
-    private lateinit var _deal:Deal
+    private var _deal:Deal? = null
 
-    var deal:Deal
+    var deal:Deal?
         @Bindable get() = _deal
         set(value) {
             _deal = value
-            notifyPropertyChanged( BR.dealObservable )
+            notifyPropertyChanged( BR.deal )
         }
 }
