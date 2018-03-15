@@ -1,12 +1,10 @@
 package com.target.dealbrowserpoc.dealbrowser.ui.deal
 
 import android.arch.lifecycle.Lifecycle
-import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v4.app.Fragment
 import com.target.dealbrowserpoc.dealbrowser.R
 import com.target.dealbrowserpoc.dealbrowser.databinding.FragmentDealItemBinding
-import com.target.dealbrowserpoc.dealbrowser.navigation.NavFragment
 import com.target.dealbrowserpoc.dealbrowser.ui.DealView
 import com.target.dealbrowserpoc.dealbrowser.ui.main.MainViewModel
 import info.juanmendez.shoeboxes.ShoeStorage

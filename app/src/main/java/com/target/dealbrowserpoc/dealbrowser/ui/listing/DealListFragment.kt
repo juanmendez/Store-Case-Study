@@ -37,7 +37,6 @@ class DealListFragment: Fragment(), DealView {
 
     @AfterViews
     fun afterViews(){
-
         drawRecyclerView()
 
         //1

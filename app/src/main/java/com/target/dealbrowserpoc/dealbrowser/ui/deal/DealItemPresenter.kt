@@ -7,7 +7,6 @@ import org.androidannotations.annotations.EBean
 
 /**
  * Created by juan on 3/13/18.
- * Ensures to upate its view to the last selected deal
  */
 @EBean
 class DealItemPresenter():NavFragment {
