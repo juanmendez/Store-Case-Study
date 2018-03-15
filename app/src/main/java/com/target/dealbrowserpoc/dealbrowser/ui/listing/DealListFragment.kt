@@ -18,7 +18,6 @@ import org.androidannotations.annotations.*
  * 0. Ensures to set up its recyclerview to show list of deals
  * 1. Provides functionality to refresh its recyclerView
  */
-@OptionsMenu(R.menu.menu)
 @EFragment(R.layout.fragment_deal_list)
 class DealListFragment: Fragment(), DealView {
     @Bean
@@ -39,6 +38,7 @@ class DealListFragment: Fragment(), DealView {
 
     @AfterViews
     fun afterViews(){
+        setHasOptionsMenu( true )
         drawRecyclerView()
 
         //1

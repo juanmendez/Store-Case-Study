@@ -8,6 +8,7 @@ import info.juanmendez.shoeboxes.shoes.ShoeRack
 import org.androidannotations.annotations.*
 
 @SuppressLint("Registered")
+@OptionsMenu(R.menu.menu)
 @EActivity(R.layout.activity_main)
 class MainActivity : AppCompatActivity() {
 
