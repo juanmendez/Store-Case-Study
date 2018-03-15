@@ -15,6 +15,8 @@ import org.androidannotations.annotations.*
 
 /**
  * Created by juan on 3/12/18.
+ * 0. Ensures to set up its recyclerview to show list of deals
+ * 1. Provides functionality to refresh its recyclerView
  */
 @OptionsMenu(R.menu.menu)
 @EFragment(R.layout.fragment_deal_list)
@@ -38,7 +40,7 @@ class DealListFragment: Fragment(), DealView {
 
         drawRecyclerView()
 
-        //user can refresh through the screen as well as through menuRefresh()
+        //1
         swipeRefreshLayout.setOnRefreshListener {
             mPresenter.refresh()
             swipeRefreshLayout.isRefreshing = false
@@ -46,6 +48,7 @@ class DealListFragment: Fragment(), DealView {
     }
 
     private fun drawRecyclerView() {
+        //0
         var layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayout.VERTICAL
         recyclerView.layoutManager = layoutManager
@@ -58,17 +61,13 @@ class DealListFragment: Fragment(), DealView {
 
     override fun getLifeCycle(): Lifecycle=activity.lifecycle
 
-    /*@Click(R.id.buttonNav)
-    fun onButtonNav(){
-        ShoeStorage.getCurrentRack().request( R.id.deal_item.toString() + "/1" )
-    }*/
-
     override fun getMainViewModel(): MainViewModel {
         return ViewModelProviders.of( activity ).get( MainViewModel::class.java )
     }
 
     @OptionsItem(R.id.menu_refresh)
     fun onMenuRefresh(){
+        //1
         mPresenter.refresh()
     }
 }

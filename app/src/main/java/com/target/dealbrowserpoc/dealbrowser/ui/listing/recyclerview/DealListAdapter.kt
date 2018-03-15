@@ -11,6 +11,7 @@ import com.target.dealbrowserpoc.dealbrowser.ui.listing.DealListFragment
 
 /**
  * Created by juan on 3/14/18.
+ * Uses LiveData<List<Deal>> in order to refresh
  */
 class DealListAdapter(private val inflater: LayoutInflater, private val view: DealListFragment ): RecyclerView.Adapter<DealItemHolder>(), LifecycleObserver {
 
@@ -20,7 +21,7 @@ class DealListAdapter(private val inflater: LayoutInflater, private val view: De
        val liveList = view.getMainViewModel().liveDealList
 
        liveList.observe( view, Observer {
-           if( it != null ){
+           it?.let{
                mDealList.clear()
                mDealList.addAll( it )
                notifyDataSetChanged()

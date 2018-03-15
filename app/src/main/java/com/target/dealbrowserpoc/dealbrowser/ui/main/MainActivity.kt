@@ -31,18 +31,6 @@ class MainActivity : AppCompatActivity() {
          * be simply instantiated right inside the Activity
          */
         MainNavigation( this, rack )
-
-        /*http.getDeals( object:DealsCall<List<Deal>>{
-            override fun onResponse(response: List<Deal>) {
-                Timber.i( "response ${response}")
-            }
-
-            override fun onError(exception: Exception) {
-                exception?.message?.let {
-                    ConfirmDialog.newInstance( this@MainActivity, it, {}, true ).show()
-                }
-            }
-        })*/
     }
 
     @OptionsItem(android.R.id.home)

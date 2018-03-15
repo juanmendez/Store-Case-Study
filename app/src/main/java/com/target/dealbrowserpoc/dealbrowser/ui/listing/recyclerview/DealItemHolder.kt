@@ -15,7 +15,6 @@ import info.juanmendez.shoeboxes.ShoeStorage
 class DealItemHolder(var binding:ListDealItemBinding): RecyclerView.ViewHolder(binding.root) {
     init {
         binding.dealObservable = DealObservable()
-
     }
 
     fun setDeal( deal:Deal, liveDeal:MutableLiveData<Deal> ){
@@ -24,6 +23,8 @@ class DealItemHolder(var binding:ListDealItemBinding): RecyclerView.ViewHolder(b
 
         binding.root.findViewById<TextView>( R.id.deal_item_description).setOnClickListener({
             liveDeal.value = deal
+
+            //redirect to DealItemFragment
             ShoeStorage.getCurrentRack().request( R.id.deal_item )
         })
     }

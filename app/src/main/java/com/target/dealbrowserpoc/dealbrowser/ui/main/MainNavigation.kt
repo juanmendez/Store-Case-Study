@@ -62,10 +62,10 @@ class MainNavigation(private var mActivity:AppCompatActivity, private var rack: 
         if( rack.history.isNotEmpty() ){
             //pull the last route
             val last = rack.history.last()
+            val isDealItemActive = last.indexOf( R.id.deal_item.toString() ) == 0
+
 
             if( !isDoublePane() ){
-
-                val isDealItemActive = last.indexOf( R.id.deal_item.toString() ) == 0
                 displayBackhome( isDealItemActive )
 
                 /**

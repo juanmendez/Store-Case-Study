@@ -7,6 +7,7 @@ import com.target.dealbrowserpoc.dealbrowser.api.models.Deal
 
 /**
  * Created by juan on 3/14/18.
+ * Databinding for deal associated with its view
  */
 class DealObservable:BaseObservable() {
     private var _deal:Deal? = null
