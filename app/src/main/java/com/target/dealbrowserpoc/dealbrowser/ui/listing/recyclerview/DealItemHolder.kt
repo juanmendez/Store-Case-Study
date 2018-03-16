@@ -2,6 +2,7 @@ package com.target.dealbrowserpoc.dealbrowser.ui.listing.recyclerview
 
 import android.arch.lifecycle.MutableLiveData
 import android.support.v7.widget.RecyclerView
+import android.view.ViewGroup
 import android.widget.TextView
 import com.target.dealbrowserpoc.dealbrowser.R
 import com.target.dealbrowserpoc.dealbrowser.models.Deal
@@ -21,7 +22,7 @@ class DealItemHolder(var binding:ListDealItemBinding): RecyclerView.ViewHolder(b
         binding.dealObservable?.deal = deal
         binding.dealItemHolder = this
 
-        binding.root.findViewById<TextView>( R.id.deal_item_description).setOnClickListener({
+        binding.root.findViewById<ViewGroup>( R.id.dealItemLayout).setOnClickListener({
             liveDeal.value = deal
 
             //redirect to DealItemFragment

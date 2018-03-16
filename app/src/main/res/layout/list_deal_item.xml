@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -10,22 +11,82 @@
             name="dealItemHolder"
             type="com.target.dealbrowserpoc.dealbrowser.ui.listing.recyclerview.DealItemHolder"/>
     </data>
+
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/dealItemLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/deal_item_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
+        <ImageView
+            android:id="@+id/dealItemImage"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@{dealObservable.deal.description}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:picassoDrawable="@{dealObservable.deal.image}" />
+
+        <TextView
+            android:id="@+id/dealItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{dealObservable.deal.title}"
+            app:layout_constraintBottom_toTopOf="@+id/dealItemPrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dealItemImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/dealItemPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:text="a"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dealItemShip"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dealItemImage" />
+
+
+        <TextView
+            android:id="@+id/dealItemShip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="ship"
+            app:layout_constraintEnd_toStartOf="@+id/dealItemAisle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dealItemPrice"
+            app:layout_constraintTop_toTopOf="@+id/dealItemPrice" />
+
+
+        <TextView
+            android:id="@+id/dealItemOr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="or"
+            app:layout_constraintEnd_toStartOf="@+id/dealItemAisle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dealItemShip"
+            app:layout_constraintTop_toTopOf="@+id/dealItemShip" />
+
+        <Button
+            android:id="@+id/dealItemAisle"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/round_button"
+            android:elevation="0dp"
+            android:text="C1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dealItemOr"
+            app:layout_constraintTop_toTopOf="@+id/dealItemOr" />
     </android.support.constraint.ConstraintLayout>
 </layout>

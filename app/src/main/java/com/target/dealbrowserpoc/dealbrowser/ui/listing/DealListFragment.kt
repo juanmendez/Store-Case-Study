@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.MenuItem
 import android.widget.LinearLayout
 import com.target.dealbrowserpoc.dealbrowser.R
 import com.target.dealbrowserpoc.dealbrowser.ui.DealView
@@ -74,9 +75,14 @@ class DealListFragment: Fragment(), DealView {
         return ViewModelProviders.of( activity ).get( MainViewModel::class.java )
     }
 
-    @OptionsItem(R.id.menu_refresh)
-    fun onMenuRefresh(){
-        //1
-        mPresenter.refresh()
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        item?.let{
+            if (it.itemId == R.id.menu_refresh) {
+                mPresenter.refresh()
+                return true
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

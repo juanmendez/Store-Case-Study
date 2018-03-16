@@ -40,6 +40,8 @@ class DealListPresenter():NavFragment {
         if( !mView.getLifeCycle().currentState.equals(Lifecycle.State.RESUMED))
             return
 
+        mView.getMainViewModel().liveDealList.value = mutableListOf()
+
         /**
          * Once fetching deals, it's required to update MainViewModel's liveDealList
          */

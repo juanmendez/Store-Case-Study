@@ -39,6 +39,16 @@ class DealsClientHttp {
 
             override fun onResponse(call: Call<DealsResponse>?, response: Response<DealsResponse>?) {
                 val dealList = response!!.body().data
+
+                /**
+                 * a quick fix, the image url is the same for all. So all images are displaying the
+                 * same image. I used instead the ones that came with the original demo.
+                 */
+                val imageResLength = 11
+                dealList.forEachIndexed{ index:Int, deal:Deal ->
+                        deal.image = "drawable/image${index % imageResLength}"
+                }
+
                 dealCall.onResponse( dealList )
             }
         })

@@ -34,10 +34,10 @@ class DealItemFragment: Fragment(), DealView{
 
     override fun getLifeCycle(): Lifecycle = activity.lifecycle
 
-    @Click(R.id.buttonNav)
+    /*@Click(R.id.buttonNav)
     fun onButtonNav(){
         ShoeStorage.getCurrentRack().request( R.id.deal_list )
-    }
+    }*/
 
     override fun getMainViewModel(): MainViewModel {
         return ViewModelProviders.of( activity ).get( MainViewModel::class.java )
