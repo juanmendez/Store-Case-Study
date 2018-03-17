@@ -47,6 +47,12 @@ class DealsClientHttp {
                 val imageResLength = 11
                 dealList.forEachIndexed{ index:Int, deal:Deal ->
                         deal.image = "drawable/image${index % imageResLength}"
+
+
+                        //make up a sales item
+                        if( index == 0 ){
+                            deal.salesPrice = "$100.00"
+                        }
                 }
 
                 dealCall.onResponse( dealList )

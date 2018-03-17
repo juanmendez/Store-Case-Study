@@ -14,24 +14,26 @@
 
         <ImageView
             android:id="@+id/detailItemImage"
-            app:picassoDrawable="@{dealObservable.deal.image}"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:adjustViewBounds="false"
             app:layout_constraintBottom_toTopOf="@+id/dealItemSellPrice"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:picassoDrawable="@{dealObservable.deal.image}" />
 
         <TextView
             android:id="@+id/dealItemRegularPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="TextView"
+            android:text="@{dealObservable.deal.price}"
+            app:strikeText="@{dealObservable.deal.salesPrice}"
             android:textAlignment="textEnd"
             app:layout_constraintBottom_toBottomOf="@+id/dealItemSellPrice"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
-            android:text="TextView"
+            android:text="@{dealObservable.deal.salesPrice}"
             app:layout_constraintBottom_toTopOf="@+id/dealItemTitle"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -55,7 +57,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="TextView"
+            android:text="@{dealObservable.deal.title}"
             app:layout_constraintBottom_toTopOf="@+id/dealItemDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -67,7 +69,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="TextView"
+            android:text="@{dealObservable.deal.description}"
             app:layout_constraintBottom_toTopOf="@+id/dealItemAddToList"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

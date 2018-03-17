@@ -64,7 +64,6 @@ class MainNavigation(private var mActivity:AppCompatActivity, private var rack: 
             val last = rack.history.last()
             val isDealItemActive = last.indexOf( R.id.deal_item.toString() ) == 0
 
-
             if( !isDoublePane() ){
                 displayBackhome( isDealItemActive )
 

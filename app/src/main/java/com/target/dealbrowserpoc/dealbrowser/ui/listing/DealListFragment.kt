@@ -30,6 +30,7 @@ class DealListFragment: Fragment(), DealView {
     @ViewById
     lateinit var recyclerView: RecyclerView
 
+
     private lateinit var mAdapter: DealListAdapter
 
     @AfterInject
@@ -39,7 +40,6 @@ class DealListFragment: Fragment(), DealView {
 
     @AfterViews
     fun afterViews(){
-        setHasOptionsMenu( true )
         drawRecyclerView()
 
         //1
@@ -73,16 +73,5 @@ class DealListFragment: Fragment(), DealView {
 
     override fun getMainViewModel(): MainViewModel {
         return ViewModelProviders.of( activity ).get( MainViewModel::class.java )
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        item?.let{
-            if (it.itemId == R.id.menu_refresh) {
-                mPresenter.refresh()
-                return true
-            }
-        }
-
-        return super.onOptionsItemSelected(item)
     }
 }

@@ -1,6 +1,7 @@
 package com.target.dealbrowserpoc.dealbrowser.ui.main
 
 import android.annotation.SuppressLint
+import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import com.target.dealbrowserpoc.dealbrowser.R
 import info.juanmendez.shoeboxes.ShoeStorage
@@ -12,19 +13,10 @@ import org.androidannotations.annotations.*
 @EActivity(R.layout.activity_main)
 class MainActivity : AppCompatActivity() {
 
-    /*@Bean
-    lateinit var http:DealsClientHttp*/
-
-    @Bean
-    lateinit var mainPresenter: MainPresenter
-
-    private lateinit var rack: ShoeRack
+    private val rack = ShoeStorage.getRack( this::class.java.name )
 
     @AfterInject
     fun afterViews(){
-        mainPresenter.setView( this )
-
-        rack = ShoeStorage.getRack( this::class.java.name )
 
         /**
          * MainNavigation encapsulates functionality for Fragment Navigation
@@ -37,6 +29,12 @@ class MainActivity : AppCompatActivity() {
     @OptionsItem(android.R.id.home)
     fun onBackHomeOption(){
         onBackPressed()
+    }
+
+    @OptionsItem(R.id.menu_refresh)
+    fun onMenuRefresh(){
+        val vm = ViewModelProviders.of( this ).get( MainViewModel::class.java )
+        vm.menuOption.update( R.id.menu_refresh )
     }
 
     override fun onBackPressed() {
