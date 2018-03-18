@@ -7,9 +7,6 @@
         <variable
             name="dealObservable"
             type="com.target.dealbrowserpoc.dealbrowser.ui.listing.recyclerview.DealObservable"/>
-        <variable
-            name="dealItemHolder"
-            type="com.target.dealbrowserpoc.dealbrowser.ui.listing.recyclerview.DealItemHolder"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -19,74 +16,92 @@
 
         <ImageView
             android:id="@+id/dealItemImage"
+            app:picassoDrawable="@{dealObservable.deal.image}"
             android:layout_width="120dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="8dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/dealItemTitle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dealItemOr"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:picassoDrawable="@{dealObservable.deal.image}" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/dealItemTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:text="@{dealObservable.deal.title}"
-            app:layout_constraintBottom_toTopOf="@+id/dealItemPrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dealItemImage"
+            app:layout_constraintTop_toTopOf="@+id/dealItemImage" />
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/darker_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/dealItemImage"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@id/dealItemTitle" />
+
 
         <TextView
             android:id="@+id/dealItemPrice"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
-            android:text="a"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/dealItemShip"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/dealItemImage" />
+            android:layout_marginTop="8dp"
+            android:text="@{dealObservable.deal.salesPrice?? dealObservable.deal.price}"
+            app:layout_constraintBottom_toBottomOf="@+id/dealItemAisle"
+            app:layout_constraintStart_toEndOf="@+id/dealItemImage"
+            app:layout_constraintTop_toTopOf="@+id/dealItemAisle" />
 
 
         <TextView
             android:id="@+id/dealItemShip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="ship"
-            app:layout_constraintEnd_toStartOf="@+id/dealItemAisle"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/dealItemPrice"
-            app:layout_constraintTop_toTopOf="@+id/dealItemPrice" />
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/ship"
+            app:layout_constraintBottom_toBottomOf="@+id/dealItemAisle"
+            app:layout_constraintEnd_toStartOf="@+id/dealItemOr"
+            app:layout_constraintTop_toTopOf="@+id/dealItemAisle" />
 
 
         <TextView
             android:id="@+id/dealItemOr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:text="or"
+            android:layout_marginTop="8dp"
+            android:text="@string/or"
+            app:layout_constraintBottom_toBottomOf="@+id/dealItemAisle"
             app:layout_constraintEnd_toStartOf="@+id/dealItemAisle"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/dealItemShip"
-            app:layout_constraintTop_toTopOf="@+id/dealItemShip" />
+            app:layout_constraintTop_toTopOf="@+id/dealItemAisle" />
 
         <Button
             android:id="@+id/dealItemAisle"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/round_button"
-            android:elevation="0dp"
-            android:text="C1"
-            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/dealItemOr"
-            app:layout_constraintTop_toTopOf="@+id/dealItemOr" />
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:textCapitalize="@{dealObservable.deal.aisle}" />
+
+
     </android.support.constraint.ConstraintLayout>
 </layout>

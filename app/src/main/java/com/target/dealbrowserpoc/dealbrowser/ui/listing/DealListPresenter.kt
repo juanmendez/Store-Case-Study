@@ -35,20 +35,16 @@ class DealListPresenter():NavFragment, Observer {
             refresh()
         }
 
-        getViewModel().menuOption.addObserver( this )
+        getViewModel().menuOptionObservable.addObserver( this )
     }
 
     override fun inactive() {
-        getViewModel().menuOption.deleteObserver( this )
+        getViewModel().menuOptionObservable.deleteObserver( this )
     }
 
     override fun update(p0: Observable?, p1: Any?) {
-        if( p1 is Int ){
-            val option = p1 as Int
-
-            if( option == R.id.menu_refresh ){
-                refresh()
-            }
+        if( p1 == R.id.menu_refresh ){
+            refresh()
         }
     }
 

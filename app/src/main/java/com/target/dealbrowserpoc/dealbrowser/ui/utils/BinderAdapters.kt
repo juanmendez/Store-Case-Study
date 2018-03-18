@@ -42,3 +42,8 @@ fun strickTextView( tv: TextView, strikeWhenText:String? ){
         tv.paintFlags = tv.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
     }
 }
+
+@BindingAdapter("textCapitalize")
+fun textCapitalize( textView:TextView, text:String ){
+    textView.text = text.capitalize()
+}

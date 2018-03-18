@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import com.target.dealbrowserpoc.dealbrowser.R
 import info.juanmendez.shoeboxes.ShoeStorage
-import info.juanmendez.shoeboxes.shoes.ShoeRack
 import org.androidannotations.annotations.*
 
 @SuppressLint("Registered")
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     @OptionsItem(R.id.menu_refresh)
     fun onMenuRefresh(){
         val vm = ViewModelProviders.of( this ).get( MainViewModel::class.java )
-        vm.menuOption.update( R.id.menu_refresh )
+        vm.menuOptionObservable.update( R.id.menu_refresh )
     }
 
     override fun onBackPressed() {

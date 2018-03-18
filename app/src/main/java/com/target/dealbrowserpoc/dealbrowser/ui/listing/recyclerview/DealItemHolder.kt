@@ -20,7 +20,6 @@ class DealItemHolder(var binding:ListDealItemBinding): RecyclerView.ViewHolder(b
 
     fun setDeal(deal: Deal, liveDeal:MutableLiveData<Deal> ){
         binding.dealObservable?.deal = deal
-        binding.dealItemHolder = this
 
         binding.root.findViewById<ViewGroup>( R.id.dealItemLayout).setOnClickListener({
             liveDeal.value = deal
