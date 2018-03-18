@@ -6,8 +6,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
-import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
-
+import com.target.dealbrowserpoc.dealbrowser.R
 
 
 //make view to display or not based on show xml attribute
@@ -34,12 +33,26 @@ fun picassoImageResource(imageView: ImageView, drawableUri:String?){
     }
 }
 
-@BindingAdapter( "strikeText")
-fun strickTextView( tv: TextView, strikeWhenText:String? ){
-    if( strikeWhenText != null && strikeWhenText.isNotEmpty() ){
-        tv.paintFlags = tv.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+@BindingAdapter( "strikeOnSale")
+fun strikeOnSale(textView: TextView, strikeWhenText:String? ){
+
+    val shouldStrikeThrough = strikeWhenText != null && strikeWhenText.isNotEmpty()
+
+    if( shouldStrikeThrough ){
+        textView.paintFlags = textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
     }else{
-        tv.paintFlags = tv.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        textView.paintFlags = textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+    }
+
+    show( textView, shouldStrikeThrough)
+}
+
+@BindingAdapter( "highlightOnSale")
+fun highlightOnSale(textView:TextView, salesText:String? ){
+    if(salesText != null ){
+        textView.setTextColor( textView.resources.getColor( R.color.secondaryColor))
+    }else{
+        textView.setTextColor( textView.resources.getColor( R.color.primaryTextColor))
     }
 }
 

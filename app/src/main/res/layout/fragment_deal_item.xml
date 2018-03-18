@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@{dealObservable.deal.price}"
-            app:strikeText="@{dealObservable.deal.salesPrice}"
+            app:strikeOnSale="@{dealObservable.deal.salesPrice}"
             android:textAlignment="textEnd"
             app:layout_constraintBottom_toBottomOf="@+id/dealItemSellPrice"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
-            android:text="@{dealObservable.deal.salesPrice}"
+            android:text="@{dealObservable.deal.salesPrice ?? dealObservable.deal.price}"
+            app:highlightOnSale="@{dealObservable.deal.salesPrice}"
             app:layout_constraintBottom_toTopOf="@+id/dealItemTitle"
             app:layout_constraintStart_toStartOf="parent" />
 
