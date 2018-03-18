@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import com.target.dealbrowserpoc.dealbrowser.R
 import com.target.dealbrowserpoc.dealbrowser.ui.DealView
 import com.target.dealbrowserpoc.dealbrowser.ui.listing.recyclerview.DealListAdapter
+import com.target.dealbrowserpoc.dealbrowser.ui.listing.recyclerview.ItemDecorator
 import com.target.dealbrowserpoc.dealbrowser.ui.main.MainViewModel
 import org.androidannotations.annotations.*
 
@@ -57,6 +58,7 @@ class DealListFragment: Fragment(), DealView {
         layoutManager.orientation = LinearLayout.VERTICAL
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = mAdapter
+        recyclerView.addItemDecoration( ItemDecorator(context))
     }
 
     override fun active(route: String?){
