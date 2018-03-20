@@ -11,5 +11,5 @@ class MainViewModel: ViewModel() {
 
     val liveDealSelected:MutableLiveData<Deal> = MutableLiveData()
     val liveDealList:MutableLiveData<List<Deal>> = MutableLiveData()
-    val menuOptionObservable = MenuOptionObservable() //don't update future subscribers
+    val menuOptionObservable = MenuOptionObservable() //don't update future subscribers like LiveData does
 }

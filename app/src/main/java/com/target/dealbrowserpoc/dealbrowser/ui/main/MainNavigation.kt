@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.target.dealbrowserpoc.dealbrowser.R
 import com.target.dealbrowserpoc.dealbrowser.navigation.NavBuilder
+import info.juanmendez.shoeboxes.ShoeStorage
 import info.juanmendez.shoeboxes.shoes.ShoeBox
 import info.juanmendez.shoeboxes.shoes.ShoeRack
 import info.juanmendez.shoeboxes.shoes.ShoeStack
@@ -20,7 +21,9 @@ import java.util.*
  * 3. Updates ShoeRack upon activity pause
  *
  */
-class MainNavigation(private var mActivity:AppCompatActivity, private var rack: ShoeRack) : LifecycleObserver, Observer {
+class MainNavigation(private var mActivity:AppCompatActivity) : LifecycleObserver, Observer {
+
+    private val rack = ShoeStorage.getRack( mActivity::class.java.name )
 
     init {
         mActivity.lifecycle.addObserver( this )
@@ -44,7 +47,6 @@ class MainNavigation(private var mActivity:AppCompatActivity, private var rack: 
 
         //1
         rack.addObserver( this )
-        update( null, null )
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
@@ -53,6 +55,8 @@ class MainNavigation(private var mActivity:AppCompatActivity, private var rack: 
         rack.onActivityPause()
         rack.deleteObserver( this )
     }
+
+    fun onBackPressed():Boolean = rack.goBack()
 
     /**
      * executead upon route update we can update the toolBar based on navigation
@@ -94,8 +98,8 @@ class MainNavigation(private var mActivity:AppCompatActivity, private var rack: 
      * Displays back button at the toolBar
      */
     private fun displayBackhome( show:Boolean ){
-        if ( mActivity.getSupportActionBar() != null) {
-            mActivity.getSupportActionBar()!!.setDisplayHomeAsUpEnabled(show)
+        mActivity.supportActionBar?.let {
+            it.setDisplayHomeAsUpEnabled(show)
         }
     }
 }

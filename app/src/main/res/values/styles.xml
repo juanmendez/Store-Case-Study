@@ -10,6 +10,38 @@
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/secondaryTextColor</item>
         <item name="android:icon">@color/iconColor</item>
+        <item name="android:windowBackground">@android:color/white</item>
     </style>
+
+
+    <style name="TargetTheme" parent="AppTheme">
+    </style>
+
+    <!--<editor-fold desc="Deal-Item">-->
+    <style name="TargetTheme.addToCart">
+        <item name="android:background">@color/secondaryLightColor</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TargetTheme.addToList">
+        <item name="android:background">@android:color/darker_gray</item>
+    </style>
+
+    <style name="TargetTheme.priceStyle">
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Medium</item>
+    </style>
+
+    <style name="TargetTheme.dealDetailTitle"  parent="TargetTheme.priceStyle">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:minHeight">40dp</item>
+    </style>
+    <!--</editor-fold>-->
+
+    <!--<editor-fold desc="Deal-List">-->
+    <style name="TargetTheme.dealTitle" parent="TargetTheme.priceStyle">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+    </style>
+
+    <!--</editor-fold>-->
 
 </resources>

@@ -11,8 +11,7 @@ import info.juanmendez.shoeboxes.shoes.ShoeRack
  * contact@juanmendez.info
  *
  * This is a support adapter for this application using ShoeBoxes.
- * Fragments are set to hide when inactive, and show when mActive.
- * Route params are only received once
+ * Fragments are set to hide when inactive, and show when active.
  */
 class NavAdapter (private var mFragment: Fragment, private var mShoeRack: ShoeRack) : ShoeFragmentAdapter {
     private var mActive: Boolean = false

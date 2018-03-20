@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -33,12 +34,28 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@{dealObservable.deal.price}"
-            app:strikeOnSale="@{dealObservable.deal.salesPrice}"
             android:textAlignment="textEnd"
+            style="@style/TargetTheme.priceStyle"
             app:layout_constraintBottom_toBottomOf="@+id/dealItemSellPrice"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/dealItemSellPrice" />
+            app:layout_constraintTop_toTopOf="@+id/dealItemSellPrice"
+            app:layout_constraintVertical_bias="1.0"
+            app:strikeOnSale="@{dealObservable.deal.salesPrice}" />
 
+
+        <TextView
+            android:id="@+id/dealRegAt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="4dp"
+            android:text="@string/registeredAt"
+            style="@style/TargetTheme.priceStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/dealItemRegularPrice"
+            app:layout_constraintEnd_toStartOf="@+id/dealItemRegularPrice"
+            app:layout_constraintTop_toTopOf="@+id/dealItemRegularPrice"
+            app:layout_constraintVertical_bias="0.0"
+            app:show="@{dealObservable.deal.salesPrice!=null}" />
 
         <TextView
             android:id="@+id/dealItemSellPrice"
@@ -47,6 +64,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
             android:text="@{dealObservable.deal.salesPrice ?? dealObservable.deal.price}"
+            style="@style/TargetTheme.priceStyle"
             app:highlightOnSale="@{dealObservable.deal.salesPrice}"
             app:layout_constraintBottom_toTopOf="@+id/dealItemTitle"
             app:layout_constraintStart_toStartOf="parent" />
@@ -58,7 +76,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="@{dealObservable.deal.title}"
+            app:textCapitalize="@{dealObservable.deal.title}"
             app:layout_constraintBottom_toTopOf="@+id/dealItemDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -77,12 +95,13 @@
 
         <Button
             android:id="@+id/dealItemAddToCart"
+            android:text="@string/add_to_cart"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:padding="0dp"
-            android:text="Button"
+            style="@style/TargetTheme.addToCart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -90,12 +109,13 @@
 
         <Button
             android:id="@+id/dealItemAddToList"
+            android:text="@string/add_to_list"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
             android:padding="0dp"
-            android:text="Button"
+            style="@style/TargetTheme.addToList"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/dealItemAddToCart"
             app:layout_constraintHorizontal_bias="0.5"

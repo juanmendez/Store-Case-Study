@@ -52,7 +52,9 @@ class DealListPresenter():NavFragment, Observer {
         if( !mView.getLifeCycle().currentState.equals(Lifecycle.State.RESUMED))
             return
 
+        //we want to reload, and therefore empty the listing
         getViewModel().liveDealList.value = mutableListOf()
+        mView.onDealsListChange( listOf() )
 
         /**
          * Once fetching deals, it's required to update MainViewModel's liveDealList
@@ -60,6 +62,7 @@ class DealListPresenter():NavFragment, Observer {
         http.getDeals( object: DealsCall<List<Deal>> {
             override fun onResponse(response: List<Deal>) {
                 getViewModel().liveDealList.value = response
+                mView.onDealsListChange( response )
                 setFirstDealAsDefault()
             }
 

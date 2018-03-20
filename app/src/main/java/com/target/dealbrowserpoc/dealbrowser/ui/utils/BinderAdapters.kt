@@ -52,11 +52,14 @@ fun highlightOnSale(textView:TextView, salesText:String? ){
     if(salesText != null ){
         textView.setTextColor( textView.resources.getColor( R.color.secondaryColor))
     }else{
-        textView.setTextColor( textView.resources.getColor( R.color.primaryTextColor))
+        textView.setTextColor( textView.resources.getColor( R.color.secondaryTextColor))
     }
 }
 
 @BindingAdapter("textCapitalize")
-fun textCapitalize( textView:TextView, text:String ){
-    textView.text = text.capitalize()
+fun textCapitalize( textView:TextView, text:String? ){
+    text?.let{
+        textView.text = it.capitalize()
+    }
 }
+
