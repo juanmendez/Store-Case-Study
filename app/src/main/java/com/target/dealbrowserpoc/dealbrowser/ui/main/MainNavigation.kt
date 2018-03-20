@@ -47,6 +47,7 @@ class MainNavigation(private var mActivity:AppCompatActivity) : LifecycleObserve
 
         //1
         rack.addObserver( this )
+        onNavigationUpdate()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
@@ -61,7 +62,9 @@ class MainNavigation(private var mActivity:AppCompatActivity) : LifecycleObserve
     /**
      * executead upon route update we can update the toolBar based on navigation
      */
-    override fun update(observable: Observable?, any: Any?) {
+    override fun update(observable: Observable?, any: Any?)=onNavigationUpdate()
+
+    private fun onNavigationUpdate(){
         //2
         if( rack.history.isNotEmpty() ){
             //pull the last route
