@@ -1,4 +1,4 @@
-## Target DealBrowser
+## Store Case Study
 
 This is a small project which is using the MVP with a variation of VM pattern. Several features benefit
 greatly in binding Model with Presenter, and View, leaving behind a close tightness between View and Presenter.
